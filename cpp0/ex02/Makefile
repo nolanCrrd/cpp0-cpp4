@@ -1,10 +1,9 @@
 CC=c++
-NAME = phone
+NAME = account
 SRC_DIR = ./
 
-SRCS = $(SRC_DIR)Contact.cpp \
-	$(SRC_DIR)PhoneBook.cpp \
-	$(SRC_DIR)main.cpp \
+SRCS = $(SRC_DIR)Account.cpp \
+	$(SRC_DIR)tests.cpp \
 
 OBJ_DIR = .build/
 OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
@@ -34,17 +33,13 @@ sanitize:
 $(NAME): $(OBJS)
 	@echo ""
 	@echo "================================"
-	@echo "Creating ex01..."
+	@echo "Creating ex02..."
 	@echo "================================"
 	@echo ""
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)init
-	@mkdir -p $(OBJ_DIR)clear
-	@mkdir -p $(OBJ_DIR)utils
-	@mkdir -p $(OBJ_DIR)routines
 	$(CC) $(CFLAGS) $< -c -o $@
 
 fclean: clean
