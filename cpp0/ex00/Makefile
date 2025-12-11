@@ -39,10 +39,6 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)init
-	@mkdir -p $(OBJ_DIR)clear
-	@mkdir -p $(OBJ_DIR)utils
-	@mkdir -p $(OBJ_DIR)routines
 	@$(CC) $(CFLAGS) $< -c -o $@
 
 fclean: clean
