@@ -1,0 +1,59 @@
+CC=c++
+NAME = phone
+SRC_DIR = ./
+
+SRCS = $(SRC_DIR)Contact.cpp \
+	$(SRC_DIR)PhoneBook.cpp \
+	$(SRC_DIR)main.cpp \
+
+OBJ_DIR = .build/
+OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
+
+FSANITIZE = -fsanitize=address,undefined,leak
+
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g \
+		-I./ \
+
+LDFLAGS =
+
+ifdef SANITIZE
+	CFLAGS += $(FSANITIZE)
+	LDFLAGS += $(FSANITIZE)
+endif
+
+all: $(NAME)
+
+sanitize:
+	@echo ""
+	@echo "================================"
+	@echo "Recompiling with fsanitize flags..."
+	@echo "================================"
+	@echo ""
+	@$(MAKE) re SANITIZE=1
+
+$(NAME): $(OBJS)
+	@echo ""
+	@echo "================================"
+	@echo "Creating ex01..."
+	@echo "================================"
+	@echo ""
+	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)init
+	@mkdir -p $(OBJ_DIR)clear
+	@mkdir -p $(OBJ_DIR)utils
+	@mkdir -p $(OBJ_DIR)routines
+	$(CC) $(CFLAGS) $< -c -o $@
+
+fclean: clean
+	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
+
+clean:
+	rm -rf $(OBJ_DIR)
+
+re: fclean all
+
+.PHONY: all fclean clean re sanitize

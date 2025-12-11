@@ -39,3 +39,9 @@
 
 # debug information files
 *.dwo
+
+en.subject.pdf
+megaphone
+compile_flags.txt
+.build
+phone
