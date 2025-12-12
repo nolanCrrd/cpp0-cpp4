@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 12:28:16 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 12:12:53 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/12 11:28:16 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/12 12:23:32 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-#include "Contact.hpp"
-#include <cstddef>
-#include <ostream>
+void	Zombie::announce(void) {
+	std::cout << name + " : " + "BraiiiiiiinnnzzzZ...\n";
+}
 
-class	PhoneBook
-{
-	public:
-		Contact	contacts[8];
-		int		oldest;
-		size_t	size;
+void	Zombie::setName(std::string newName) {
+	name = newName;
+}
 
-		PhoneBook();
-		void	add_contact(Contact contact);
-		void	search_contact();
-		friend std::ostream &operator<<(std::ostream &os, const PhoneBook &obj);
-};
+Zombie::Zombie(std::string name)
+	:name(name){}
 
-#endif
+Zombie::Zombie()
+	:name(){}
+
+Zombie::~Zombie() {
+	std::cout << name + " : destroyed\n";
+}

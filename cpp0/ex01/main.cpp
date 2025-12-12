@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 13:50:29 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/11 14:19:15 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:12:46 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	search(PhoneBook &book)
 	size_t	size;
 
 	std::cout << "\n";
-	size = book.contacts.size();
+	size = book.size;
 	if (size <= 0)
 		return ;
 	std::cout << book;

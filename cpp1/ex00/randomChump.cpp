@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:34:37 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 11:38:02 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:23:59 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	randomChump(std::string name)
 {
-	Zombie zombie(name);
+	Zombie	zombie(name);
 
 	zombie.announce();
 }

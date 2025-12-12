@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:28:16 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 11:47:21 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:23:40 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-void Zombie::announce(void)
+void	Zombie::announce(void)
 {
 	std::cout << name + " : " + "BraiiiiiiinnnzzzZ...\n";
 }

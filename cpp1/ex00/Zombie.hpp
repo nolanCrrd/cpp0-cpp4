@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 11:25:59 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 11:41:02 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:23:48 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Zombie {
 
 	private:
 
-	std::string name;
+	std::string	name;
 };
 
 Zombie	*newZombie(std::string name);

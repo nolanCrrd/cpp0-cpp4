@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 12:28:16 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 12:12:53 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/12 11:59:19 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/12 12:21:26 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <cstddef>
-#include <ostream>
+Zombie* zombieHorde(int N, std::string name) {
+	Zombie	*horde;
+	int		i;
 
-class	PhoneBook
-{
-	public:
-		Contact	contacts[8];
-		int		oldest;
-		size_t	size;
-
-		PhoneBook();
-		void	add_contact(Contact contact);
-		void	search_contact();
-		friend std::ostream &operator<<(std::ostream &os, const PhoneBook &obj);
-};
-
-#endif
+	horde = new Zombie[N];
+	i = 0;
+	while (i < N)
+		horde[i++].setName(name);
+	return (horde);
+}
