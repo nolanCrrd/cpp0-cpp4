@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 13:54:39 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 15:51:07 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/14 14:57:05 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/14 15:14:09 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#include "Harl.hpp"
 
-#include <string>
+int	main(int argc, char **argv) {
+	Harl	harl;
 
-int	looser_sed(std::string infile, std::string s1, std::string s2);
-
-#endif
+	if (argc != 2)
+		return (1);
+	harl.complain(argv[1]);
+}

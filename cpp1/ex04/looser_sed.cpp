@@ -15,10 +15,12 @@
 #include <fstream>
 #include <string>
 
-int	loser_sed(std::string infile, std::string s1, std::string s2) {
+int	looser_sed(std::string infile, std::string s1, std::string s2) {
 	std::string	line;
 	size_t	last_found;
 
+	if (s1 == "")
+		return (2);
 	std::ifstream in_file(infile.c_str());
 	if (!in_file.is_open())
 		return (1);

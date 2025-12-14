@@ -5,22 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 13:54:34 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 15:58:48 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/14 14:57:05 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/14 15:00:18 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "looser_sed.hpp"
+#include "Harl.hpp"
+#include <iostream>
 
-int	main(int argc, char **argv)
-{
-	int	err;
-	if (argc != 4)
-		return (1);
-	(void) argv;
-	// err = looser_sed("Makefile", "c", "couscous");
-	// err = looser_sed("Makefile.replace", "couscous", "");
-	// err = looser_sed("Makefile.replace", "", "couscous");
-	err = looser_sed(argv[1], argv[2], argv[3]);
-	return (err);
+int	main() {
+	Harl	harl;
+
+	std::cout << "\n====== Complain('DEBUG') ======\n";
+	harl.complain("DEBUG");
+
+	std::cout << "\n====== Complain('INFO') ======\n";
+	harl.complain("INFO");
+
+	std::cout << "\n====== Complain('WARNING') ======\n";
+	harl.complain("WARNING");
+
+	std::cout << "\n====== Complain('ERROR') ======\n";
+	harl.complain("ERROR");
+
+	std::cout << "\n====== Complain('INVALID') ======\n";
+	harl.complain("INVALID");
 }
