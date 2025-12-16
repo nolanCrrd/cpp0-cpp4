@@ -24,19 +24,9 @@ endif
 all: $(NAME)
 
 sanitize:
-	@echo ""
-	@echo "================================"
-	@echo "Recompiling with fsanitize flags..."
-	@echo "================================"
-	@echo ""
 	@$(MAKE) re SANITIZE=1
 
 $(NAME): $(OBJS)
-	@echo ""
-	@echo "================================"
-	@echo "Creating ex00..."
-	@echo "================================"
-	@echo ""
 	@$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp

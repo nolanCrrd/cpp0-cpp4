@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 11:54:36 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/14 15:14:37 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/14 15:18:14 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,21 @@ void	Harl::complain(std::string level) {
 
 	while (i < 4 && strs[i] != level)
 		i++;
-	if (i == 4)
+	switch (i) 
 	{
-		std::cout << "INVALID LEVEL !\n";
-		return ;
+		case 0:
+			functions[0]();
+			[[fallthrough]];
+		case 1:
+			functions[1]();
+			[[fallthrough]];
+		case 2:
+			functions[2]();
+			[[fallthrough]];
+		case 3:
+			functions[3]();
+			break ;
+		case 4:
+			std::cout << "INVALID LEVEL\n";
 	}
-	while (i < 4)
-		functions[i++]();
 }
