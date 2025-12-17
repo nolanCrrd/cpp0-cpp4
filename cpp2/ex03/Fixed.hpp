@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/17 12:34:34 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/17 12:46:39 by ncorrear         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+#include <ostream>
+class	Fixed {
+	private:
+
+	int					rawBits;
+	static const int	fractional_bits = 8;
+
+	public:
+
+	Fixed();
+	Fixed(const int raw);
+	Fixed(const float raw);
+	Fixed(const Fixed &other);
+	Fixed &operator=(const Fixed &other);
+	~Fixed();
+
+	int		getRawBits() const;
+	void	setRawBits(int const raw);
+	float	toFloat() const;
+	int		toInt() const;
+
+	static Fixed min(Fixed &f1, Fixed &f2);
+	static Fixed max(Fixed &f1, Fixed &f2);
+	static Fixed min(const Fixed &f1, const Fixed &f2);
+	static Fixed max(const Fixed &f1, const Fixed &f2);
+
+	// Operator overloads
+	friend std::ostream &operator<<(std::ostream &os, const Fixed &obj);
+	bool operator>(const Fixed &other) const;
+	bool operator<(const Fixed &other) const;
+	bool operator>=(const Fixed &other) const;
+	bool operator<=(const Fixed &other) const;
+	bool operator==(const Fixed &other) const;
+	bool operator!=(const Fixed &other) const;
+	Fixed operator+(const Fixed &other) const;
+	Fixed operator-(const Fixed &other) const;
+	Fixed operator*(const Fixed &other) const;
+	Fixed operator/(const Fixed &other) const;
+	Fixed &operator--();
+	Fixed &operator++();
+	Fixed operator--(int);
+	Fixed operator++(int);
+};
+
+#endif
