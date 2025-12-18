@@ -11,15 +11,24 @@
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 #include <ostream>
 
 int main() {
-	FragTrap first("first");
-	FragTrap first_dup(first);
+	ScavTrap first("first");
+	ScavTrap first_dup(first);
+	FragTrap second("second");
+	FragTrap second_dup(second);
 	
 	std::cout << std::endl << "==first attaque sa copie==" << std::endl;
 	first.attack(first_dup);
+
+	std::cout << std::endl << "==second attaque sa copie==" << std::endl;
+	second.attack(second_dup);
+
+	std::cout << std::endl << "==second attaque first==" << std::endl;
+	second.attack(second_dup);
 
 	std::cout << std::endl << "==destroying==" << std::endl;
 	return (0);

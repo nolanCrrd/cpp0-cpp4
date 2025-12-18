@@ -5,6 +5,7 @@ SRC_DIR = ./
 SRCS = $(SRC_DIR)main.cpp \
 	$(SRC_DIR)ClapTrap.cpp \
 	$(SRC_DIR)FragTrap.cpp \
+	$(SRC_DIR)ScavTrap.cpp \
 
 OBJ_DIR = .build/
 OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)

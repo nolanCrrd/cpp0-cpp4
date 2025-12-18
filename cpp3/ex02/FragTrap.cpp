@@ -19,15 +19,15 @@
 FragTrap::FragTrap() : ClapTrap() {
 	_name = "Default FragClap";
 	_hit_point = 100;
-	_energy_point = 50;
-	_attack_damage = 20;
+	_energy_point = 100;
+	_attack_damage = 30;
 	std::cout << "Frag Trap " << _name << " created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	_hit_point = 100;
-	_energy_point = 50;
-	_attack_damage = 20;
+	_energy_point = 100;
+	_attack_damage = 30;
 	std::cout << "Frag Trap " << _name << " created" << std::endl;
 }
 
