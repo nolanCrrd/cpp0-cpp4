@@ -15,19 +15,19 @@
 #include <string>
 
 void	Zombie::announce(void) {
-	std::cout << name + " : " + "BraiiiiiiinnnzzzZ...\n";
+	std::cout << _name + " : " + "BraiiiiiiinnnzzzZ...\n";
 }
 
 void	Zombie::setName(std::string newName) {
-	name = newName;
+	_name = newName;
 }
 
 Zombie::Zombie(std::string name)
-	:name(name){}
+	:_name(name){}
 
 Zombie::Zombie()
-	:name(){}
+	:_name(){}
 
 Zombie::~Zombie() {
-	std::cout << name + " : destroyed\n";
+	std::cout << _name + " : destroyed\n";
 }

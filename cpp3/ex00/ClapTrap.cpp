@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 13:06:37 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 13:27:49 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/18 11:17:42 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/18 11:18:03 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "ClapTrap.hpp"
+#include <cerrno>
 #include <string>
 
-Weapon::Weapon()
-	:_type(){}
+ClapTrap::ClapTrap()
+	:_name("Default name"), _hit_point(10), _energy_point(10), _attack_damage(10) {}
 
-Weapon::Weapon(std::string type)
-	:_type(type){}
-
-Weapon::~Weapon() {}
-
-std::string	Weapon::getType() {
-	return (_type);
-}
-
-void	Weapon::setType(std::string new_type) {
-	_type = new_type;
+ClapTrap::ClapTrap(std::string name)
+	:name(name) {
 }

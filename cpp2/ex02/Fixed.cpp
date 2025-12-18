@@ -16,43 +16,43 @@
 #include <ostream>
 
 Fixed::Fixed()
-	:rawBits(0) {}
+	:_rawBits(0) {}
 
 Fixed::Fixed(const int raw)
-	:rawBits(raw << fractional_bits) {}
+	:_rawBits(raw << _fractional_bits) {}
 
 Fixed::Fixed(const float raw) {
-	rawBits = (int)(raw * (1 << fractional_bits));
+	_rawBits = (int)(raw * (1 << _fractional_bits));
 }
 
 Fixed::Fixed(const Fixed &other) {
-	rawBits = other.getRawBits();
+	_rawBits = other.getRawBits();
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
 	if (this != &other)
-		rawBits = other.getRawBits();
+		_rawBits = other.getRawBits();
 	return (*this);
 }
 
 Fixed::~Fixed() {}
 
 int Fixed::getRawBits() const {
-	return (rawBits);
+	return (_rawBits);
 }
 
 void Fixed::setRawBits(const int raw) {
-	rawBits = raw;
+	_rawBits = raw;
 }
 
 int Fixed::toInt() const {
-	return (rawBits / std::pow(2, fractional_bits));
+	return (_rawBits / std::pow(2, _fractional_bits));
 }
 
 float Fixed::toFloat() const {
 	float val;
 
-	val = (float)rawBits / (1 << fractional_bits);
+	val = (float)_rawBits / (1 << _fractional_bits);
 	return (val);
 }
 
@@ -88,14 +88,14 @@ bool Fixed::operator!=(const Fixed &other) const {
 Fixed Fixed::operator+(const Fixed &other) const {
 	Fixed result;
 
-	result.rawBits = this->rawBits + other.rawBits;
+	result._rawBits = this->_rawBits + other._rawBits;
 	return (result);
 }
 
 Fixed Fixed::operator-(const Fixed &other) const {
 	Fixed result;
 
-	result.rawBits = this->rawBits - other.rawBits;
+	result._rawBits = this->_rawBits - other._rawBits;
 	return (result);
 }
 
@@ -119,7 +119,7 @@ Fixed Fixed::operator++(int) {
 	Fixed result;
 
 	result = *this;
-	this->rawBits += 1;
+	this->_rawBits += 1;
 	return (result);
 }
 
@@ -127,17 +127,17 @@ Fixed Fixed::operator--(int) {
 	Fixed result;
 
 	result = *this;
-	this->rawBits -= 1;
+	this->_rawBits -= 1;
 	return (result);
 }
 
 Fixed &Fixed::operator++() {
-	this->rawBits += 1;
+	this->_rawBits += 1;
 	return (*this);
 }
 
 Fixed &Fixed::operator--() {
-	this->rawBits -= 1;
+	this->_rawBits -= 1;
 	return (*this);
 }
 

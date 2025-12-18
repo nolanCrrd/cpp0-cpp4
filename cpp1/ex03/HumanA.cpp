@@ -16,11 +16,11 @@
 #include <string>
 
 HumanA::HumanA(std::string name, Weapon &weapon)
-	:name(name), weapon(weapon) {}
+	:_name(name), _weapon(weapon) {}
 
 HumanA::~HumanA() {}
 
 void	HumanA::attack()
 {
-	std::cout << name << " attack with their " << weapon.getType() << "\n";
+	std::cout << _name << " attack with their " << _weapon.getType() << "\n";
 }

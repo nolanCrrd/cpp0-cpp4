@@ -16,22 +16,22 @@
 #include <string>
 
 HumanB::HumanB()
-	:name("NoName"), weapon(NULL) {}
+	:_name("NoName"), _weapon(NULL) {}
 
 HumanB::HumanB(std::string name)
-	:name(name), weapon(NULL) {}
+	:_name(name), _weapon(NULL) {}
 
 HumanB::~HumanB() {}
 
 void	HumanB::attack()
 {
-	if (weapon)
-		std::cout << name << " attack with their " << weapon->getType() << "\n";
+	if (_weapon)
+		std::cout << _name << " attack with their " << _weapon->getType() << "\n";
 	else
-		std::cout << name << " attack with their " << "(no weapon)"<< "\n";
+		std::cout << _name << " attack with their " << "(no weapon)"<< "\n";
 }
 
 void	HumanB::setWeapon(Weapon &new_weapon)
 {
-	weapon = &new_weapon;
+	_weapon = &new_weapon;
 }

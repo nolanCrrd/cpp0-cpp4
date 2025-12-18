@@ -14,19 +14,19 @@
 #include <iostream>
 
 Fixed::Fixed()
-	:rawBits(0) {
+	:_rawBits(0) {
 	std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed &other) {
 	std::cout << "Copy constructor called\n";
-	rawBits = other.getRawBits();
+	_rawBits = other.getRawBits();
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
 	std::cout << "Copy assignement called\n";
 	if (this != &other)
-		rawBits = other.getRawBits();
+		_rawBits = other.getRawBits();
 	return (*this);
 }
 
@@ -36,12 +36,12 @@ Fixed::~Fixed() {
 
 int Fixed::getRawBits() const {
 	std::cout << "getRawBits member function called\n";
-	return (rawBits);
+	return (_rawBits);
 }
 
 void Fixed::setRawBits(const int raw) {
 	std::cout << "setRawBits member function called\n";
-	rawBits = raw;
+	_rawBits = raw;
 }
 
 

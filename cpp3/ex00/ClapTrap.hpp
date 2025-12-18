@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 13:06:37 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 13:27:49 by ncorrear         ###   ########.fr       */
+/*   Created: 2025/12/18 11:05:37 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/18 11:14:53 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
 #include <string>
+class ClapTrap {
+	private:
 
-Weapon::Weapon()
-	:_type(){}
+	std::string _name;
+	int _hit_point;
+	int _energy_point;
+	int _attack_damage;
 
-Weapon::Weapon(std::string type)
-	:_type(type){}
+	public:
 
-Weapon::~Weapon() {}
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(ClapTrap &other);
+	ClapTrap &operator=(ClapTrap &other);
+	~ClapTrap();
 
-std::string	Weapon::getType() {
-	return (_type);
-}
+	void attack(ClapTrap &other);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+};
 
-void	Weapon::setType(std::string new_type) {
-	_type = new_type;
-}
+#endif
