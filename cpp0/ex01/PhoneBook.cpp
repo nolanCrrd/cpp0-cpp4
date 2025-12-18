@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <cstddef>
 #include <endian.h>
 #include <iostream>
 #include <ostream>
 #include <iomanip>
 
 PhoneBook::PhoneBook()
-	:contacts(), oldest(0), size(0){}
+	:_contacts(), _oldest(0), _size(0){}
 
 static std::string	get_truncated(std::string str)
 {
@@ -28,7 +27,7 @@ static std::string	get_truncated(std::string str)
 }
 
 std::ostream &operator<<(std::ostream &os, const PhoneBook &obj) {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	os << '|' << std::setw(10)
@@ -39,26 +38,38 @@ std::ostream &operator<<(std::ostream &os, const PhoneBook &obj) {
 		<< "last name"
 		<< '|' << std::setw(10) 
 		<< "nickname" << "|\n";
-	while (i < obj.size) {
+	while (i < obj.getSize()) {
 		os << '|' << std::setw(10)
 			<< i
 			<< '|' << std::setw(10)
-			<< get_truncated(obj.contacts[i].first_name)
+			<< get_truncated(obj.getContact()[i].getFirstName())
 			<< '|' << std::setw(10)
-			<< get_truncated(obj.contacts[i].last_name)
+			<< get_truncated(obj.getContact()[i].getLastName())
 			<< '|' << std::setw(10) 
-			<< get_truncated(obj.contacts[i].nickname) << "|\n";
+			<< get_truncated(obj.getContact()[i].getNickname()) << "|\n";
 		i++;
 	}
 	return (os);
 }
 
 void PhoneBook::add_contact(Contact contact) {
-	if (size < 8)
-		contacts[size++] = contact;
+	if (_size < 8)
+		_contacts[_size++] = contact;
 	else {
-		contacts[oldest] = contact;
-		oldest++;
-		oldest %= 8;
+		_contacts[_oldest] = contact;
+		_oldest++;
+		_oldest %= 8;
 	};
+}
+
+int	PhoneBook::getSize() const {
+	return (_size);
+}
+
+int PhoneBook::getOldest() const {
+	return (_oldest);
+}
+
+const Contact *PhoneBook::getContact() const {
+	return (_contacts);
 }

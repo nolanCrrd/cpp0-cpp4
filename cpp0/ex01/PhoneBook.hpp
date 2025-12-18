@@ -14,20 +14,24 @@
 # define PHONE_BOOK_HPP
 
 #include "Contact.hpp"
-#include <cstddef>
 #include <ostream>
 
 class	PhoneBook
 {
-	public:
-		Contact	contacts[8];
-		int		oldest;
-		size_t	size;
+	private:
+		Contact	_contacts[8];
+		int		_oldest;
+		int		_size;
 
+	public:
 		PhoneBook();
 		void	add_contact(Contact contact);
 		void	search_contact();
-		friend std::ostream &operator<<(std::ostream &os, const PhoneBook &obj);
+		int		getSize() const;
+		int		getOldest() const;
+		const Contact	*getContact() const;
 };
+
+std::ostream &operator<<(std::ostream &os, const PhoneBook &obj);
 
 #endif

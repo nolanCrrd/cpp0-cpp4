@@ -40,7 +40,6 @@ class	Fixed {
 	static Fixed max(const Fixed &f1, const Fixed &f2);
 
 	// Operator overloads
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 	bool operator>(const Fixed &other) const;
 	bool operator<(const Fixed &other) const;
 	bool operator>=(const Fixed &other) const;
@@ -56,5 +55,7 @@ class	Fixed {
 	Fixed operator--(int);
 	Fixed operator++(int);
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 
 #endif

@@ -12,7 +12,6 @@
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <cstddef>
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -29,31 +28,42 @@ static int	prompt_user(std::string &input_sorage)
 static void	create_contact(PhoneBook &book)
 {
 	Contact	contact;
+	std::string input;
+	std::string tmp;
 
 	std::cout << "\n";
 	std::cout << "Enter the contact's informations:\n";
 	std::cout << "First name: ";
-	std::getline(std::cin, contact.first_name);
+	if (!std::getline(std::cin, input))
+		return ;
+	contact.setFirstName(input);
 	std::cout << "Last name: ";
-	std::getline(std::cin, contact.last_name);
+	if (!std::getline(std::cin, input))
+		return ;
+	contact.setLastName(input);
 	std::cout << "Nickname: ";
-	std::getline(std::cin, contact.nickname);
+	if (!std::getline(std::cin, input))
+		return ;
+	contact.setNickname(input);
 	std::cout << "Phone number: ";
-	std::getline(std::cin, contact.phone_number);
+	if (!std::getline(std::cin, input))
+		return ;
+	contact.setPhoneNumber(input);
 	std::cout << "Darkest secret: ";
-	std::getline(std::cin, contact.darkest_secret);
-
+	if (!std::getline(std::cin, input))
+		return ;
+	contact.setDarkestSecret(input);
 	book.add_contact(contact);
 }
 
 static void	search(PhoneBook &book)
 {
-	size_t	chosen_index;
+	int	chosen_index;
 	std::string input;
-	size_t	size;
+	int	size;
 
 	std::cout << "\n";
-	size = book.size;
+	size = book.getSize();
 	if (size <= 0)
 		return ;
 	std::cout << book;
@@ -62,12 +72,12 @@ static void	search(PhoneBook &book)
 	if (!std::getline(std::cin, input))
 		return ;
 	chosen_index = std::atoi(input.c_str());
-	if (chosen_index > size) {
+	if (chosen_index > size - 1) {
 		std::cout << "Invalid contact\n";
 		return ;
 	}
 	std::cout << "\n";
-	std::cout << book.contacts[chosen_index];
+	std::cout << book.getContact()[chosen_index];
 }
 
 int main(void)

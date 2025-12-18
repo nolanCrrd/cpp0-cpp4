@@ -14,22 +14,37 @@
 # define CONTACT_HPP
 
 #include <iostream>
+#include <string>
 
 class	Contact
 {
-	public:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
+	private:
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
 
+	public:
 		Contact();
 		Contact(const std::string &fn, const std::string &ln,
             const std::string &nn, const std::string &pn,
             const std::string &ds);
+		std::string getFirstName() const;
+		std::string getLastName() const;
+		std::string getNickname() const;
+		std::string getPhoneNumber() const;
+		std::string getDarkestSecret() const;
+		void setFirstName(std::string);
+		void setLastName(std::string);
+		void setNickname(std::string);
+		void setPhoneNumber(std::string);
+		void setDarkestSecret(std::string);
 
-		friend std::ostream& operator<<(std::ostream &os, const Contact &obj);
+
 };
+
+std::ostream& operator<<(std::ostream &os, const Contact &obj);
+
 
 #endif
