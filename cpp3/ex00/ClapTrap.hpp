@@ -20,7 +20,7 @@ class ClapTrap {
 	std::string _name;
 	int _hit_point;
 	int _energy_point;
-	int _attack_damage;
+	unsigned int _attack_damage;
 
 	public:
 

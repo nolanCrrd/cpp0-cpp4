@@ -1,5 +1,5 @@
 CC=c++
-NAME = couscous
+NAME = clapTrap
 SRC_DIR = ./
 
 SRCS = $(SRC_DIR)main.cpp \
