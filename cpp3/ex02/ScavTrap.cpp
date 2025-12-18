@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:20:55 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/18 13:10:00 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/18 13:05:02 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,17 @@ void ScavTrap::guardGate() {
 	<< " entered in guard mode" << std::endl;
 }
 
-void ScavTrap::attack(ClapTrap &other) {
+void ScavTrap::attack(const std::string &target) {
 	if (_energy_point > 0 && _hit_point > 0)
 	{
 		std::cout << "Scav Trap " << _name
-			<< " attacks " << " another"
+			<< " attacks " << target
 			<< ", causing " << _attack_damage
 			<< " points of damages" << std::endl;
-		other.takeDamage(_attack_damage);
 		_energy_point -= 1;
 	}
 	else {
 		std::cout << "Clap Trap " << _name
-			<< " cannot attacks " << " a clap trap" << std::endl;
+			<< " cannot attacks " << target << std::endl;
 	}
 }

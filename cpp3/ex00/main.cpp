@@ -19,29 +19,41 @@ int main() {
 	ClapTrap second("second");
 
 	std::cout << std::endl << "==basics tests==" << std::endl;
-	first.attack(second);
+	first.attack("second");
+	second.takeDamage(first.getAttackDamage());
 	second.beRepaired(1);
 
 	std::cout << std::endl << "==make second lost all energy==" << std::endl;
 	// Make second failed to make actions -> no more energy
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
-	second.attack(first);
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
 
 	std::cout << std::endl << "==second is no more able to make actions==" << std::endl;
 	// failed
-	second.attack(first);
+	second.attack("first");
+	first.takeDamage(second.getAttackDamage());
 	second.beRepaired(1);
 
 	std::cout << std::endl << "==first stil able to make actions==" << std::endl;
 	// First still can make actions
-	first.attack(second);
+	first.attack("second");
+	second.takeDamage(first.getAttackDamage());
 
 	std::cout << std::endl << "==destruction==" << std::endl;
 

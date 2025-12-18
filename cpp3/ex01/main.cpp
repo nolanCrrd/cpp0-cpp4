@@ -19,7 +19,8 @@ int main() {
 	ScavTrap first_dup(first);
 	
 	std::cout << std::endl << "==first attaque sa copie==" << std::endl;
-	first.attack(first_dup);
+	first.attack("copy");
+	first_dup.takeDamage(first.getAttackDamage());
 	std::cout << std::endl << "==destroying==" << std::endl;
 	return (0);
 }

@@ -22,13 +22,16 @@ int main() {
 	FragTrap second_dup(second);
 	
 	std::cout << std::endl << "==first attaque sa copie==" << std::endl;
-	first.attack(first_dup);
+	first.attack("first copy");
+	first_dup.takeDamage(first.getAttackDamage());
 
 	std::cout << std::endl << "==second attaque sa copie==" << std::endl;
-	second.attack(second_dup);
+	second.attack("second copy");
+	second_dup.takeDamage(second_dup.getAttackDamage());
 
 	std::cout << std::endl << "==second attaque first==" << std::endl;
-	second.attack(second_dup);
+	second.attack("first");
+	first.takeDamage(first.getAttackDamage());
 
 	std::cout << std::endl << "==destroying==" << std::endl;
 	return (0);
