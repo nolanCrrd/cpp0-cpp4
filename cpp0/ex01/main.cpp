@@ -6,7 +6,7 @@
 /*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 13:50:29 by ncorrear          #+#    #+#             */
-/*   Updated: 2025/12/12 12:12:46 by ncorrear         ###   ########.fr       */
+/*   Updated: 2025/12/19 09:04:33 by ncorrear         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int main(void)
 			break ;
 		else if (input == "ADD")
 			create_contact(book);
-		else
-			std::cout << "Invalid command\n";
 	}
 	return (0);
 }
