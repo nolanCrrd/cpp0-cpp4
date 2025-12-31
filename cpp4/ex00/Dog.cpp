@@ -37,6 +37,10 @@ Dog &Dog::operator=(Dog &other) {
 	return (*this);
 }
 
+Dog::~Dog() {
+	std::cout << "Dog destroyed" << std::endl;
+}
+
 void Dog::makeSound() const {
 	std::cout << "Wouuuuf" << std::endl;
 }

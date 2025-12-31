@@ -23,7 +23,7 @@ class Dog : public Animal {
 	Dog(std::string type);
 	Dog(Dog &other);
 	Dog &operator=(Dog &other);
-	~Dog();
+	virtual ~Dog();
 
 	virtual void makeSound() const;
 };
