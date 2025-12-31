@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ncorrear <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/31 10:37:20 by ncorrear          #+#    #+#             */
+/*   Updated: 2025/12/31 10:45:59 by ncorrear         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+# define DOG_HPP
+
+#include "Animal.hpp"
+#include <string>
+
+class Dog : public Animal {
+	public:
+
+	Dog();
+	Dog(std::string type);
+	Dog(Dog &other);
+	Dog &operator=(Dog &other);
+	~Dog();
+
+	virtual void makeSound() const;
+};
+
+#endif
